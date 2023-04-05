@@ -139,7 +139,7 @@ function invest() payable public returns(bool){ // function invest() for investo
     return true;
 }
 // function to burn the number of tokens
-function burn() public returns(bool){
+function burn() public  onlyManager returns(bool){
     icoState=getState();
     require(icoState==State.afterEnd,"the ICO is running wait to end it"); //to burn the tokens the state of the ICO should end
     balances[founder]=0;// after burn token balance will be zero 
